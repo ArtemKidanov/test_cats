@@ -19,25 +19,22 @@ class CatFactAdapter extends TypeAdapter<_$_CatFact> {
     return _$_CatFact(
       id: fields[0] as String,
       text: fields[1] as String,
-      isDeleted: fields[2] as bool,
-      createdAt: fields[3] as DateTime,
-      imageBytes: (fields[4] as List).cast<int>(),
+      createdAt: fields[2] as DateTime,
+      imageBytes: (fields[3] as List).cast<int>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_CatFact obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.text)
       ..writeByte(2)
-      ..write(obj.isDeleted)
-      ..writeByte(3)
       ..write(obj.createdAt)
-      ..writeByte(4)
+      ..writeByte(3)
       ..write(obj.imageBytes);
   }
 

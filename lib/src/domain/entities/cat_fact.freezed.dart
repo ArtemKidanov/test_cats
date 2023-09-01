@@ -21,10 +21,8 @@ mixin _$CatFact {
   @HiveField(1)
   String get text => throw _privateConstructorUsedError;
   @HiveField(2)
-  bool get isDeleted => throw _privateConstructorUsedError;
-  @HiveField(3)
   DateTime get createdAt => throw _privateConstructorUsedError;
-  @HiveField(4)
+  @HiveField(3)
   List<int> get imageBytes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,9 +37,8 @@ abstract class $CatFactCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String id,
       @HiveField(1) String text,
-      @HiveField(2) bool isDeleted,
-      @HiveField(3) DateTime createdAt,
-      @HiveField(4) List<int> imageBytes});
+      @HiveField(2) DateTime createdAt,
+      @HiveField(3) List<int> imageBytes});
 }
 
 /// @nodoc
@@ -59,7 +56,6 @@ class _$CatFactCopyWithImpl<$Res, $Val extends CatFact>
   $Res call({
     Object? id = null,
     Object? text = null,
-    Object? isDeleted = null,
     Object? createdAt = null,
     Object? imageBytes = null,
   }) {
@@ -72,10 +68,6 @@ class _$CatFactCopyWithImpl<$Res, $Val extends CatFact>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      isDeleted: null == isDeleted
-          ? _value.isDeleted
-          : isDeleted // ignore: cast_nullable_to_non_nullable
-              as bool,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -98,9 +90,8 @@ abstract class _$$_CatFactCopyWith<$Res> implements $CatFactCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String id,
       @HiveField(1) String text,
-      @HiveField(2) bool isDeleted,
-      @HiveField(3) DateTime createdAt,
-      @HiveField(4) List<int> imageBytes});
+      @HiveField(2) DateTime createdAt,
+      @HiveField(3) List<int> imageBytes});
 }
 
 /// @nodoc
@@ -115,7 +106,6 @@ class __$$_CatFactCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? text = null,
-    Object? isDeleted = null,
     Object? createdAt = null,
     Object? imageBytes = null,
   }) {
@@ -128,10 +118,6 @@ class __$$_CatFactCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      isDeleted: null == isDeleted
-          ? _value.isDeleted
-          : isDeleted // ignore: cast_nullable_to_non_nullable
-              as bool,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -151,9 +137,8 @@ class _$_CatFact implements _CatFact {
   const _$_CatFact(
       {@HiveField(0) required this.id,
       @HiveField(1) required this.text,
-      @HiveField(2) required this.isDeleted,
-      @HiveField(3) required this.createdAt,
-      @HiveField(4) required final List<int> imageBytes})
+      @HiveField(2) required this.createdAt,
+      @HiveField(3) required final List<int> imageBytes})
       : _imageBytes = imageBytes;
 
   @override
@@ -164,13 +149,10 @@ class _$_CatFact implements _CatFact {
   final String text;
   @override
   @HiveField(2)
-  final bool isDeleted;
-  @override
-  @HiveField(3)
   final DateTime createdAt;
   final List<int> _imageBytes;
   @override
-  @HiveField(4)
+  @HiveField(3)
   List<int> get imageBytes {
     if (_imageBytes is EqualUnmodifiableListView) return _imageBytes;
     // ignore: implicit_dynamic_type
@@ -179,7 +161,7 @@ class _$_CatFact implements _CatFact {
 
   @override
   String toString() {
-    return 'CatFact(id: $id, text: $text, isDeleted: $isDeleted, createdAt: $createdAt, imageBytes: $imageBytes)';
+    return 'CatFact(id: $id, text: $text, createdAt: $createdAt, imageBytes: $imageBytes)';
   }
 
   @override
@@ -189,8 +171,6 @@ class _$_CatFact implements _CatFact {
             other is _$_CatFact &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.isDeleted, isDeleted) ||
-                other.isDeleted == isDeleted) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             const DeepCollectionEquality()
@@ -198,7 +178,7 @@ class _$_CatFact implements _CatFact {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, text, isDeleted, createdAt,
+  int get hashCode => Object.hash(runtimeType, id, text, createdAt,
       const DeepCollectionEquality().hash(_imageBytes));
 
   @JsonKey(ignore: true)
@@ -212,9 +192,8 @@ abstract class _CatFact implements CatFact {
   const factory _CatFact(
       {@HiveField(0) required final String id,
       @HiveField(1) required final String text,
-      @HiveField(2) required final bool isDeleted,
-      @HiveField(3) required final DateTime createdAt,
-      @HiveField(4) required final List<int> imageBytes}) = _$_CatFact;
+      @HiveField(2) required final DateTime createdAt,
+      @HiveField(3) required final List<int> imageBytes}) = _$_CatFact;
 
   @override
   @HiveField(0)
@@ -224,12 +203,9 @@ abstract class _CatFact implements CatFact {
   String get text;
   @override
   @HiveField(2)
-  bool get isDeleted;
-  @override
-  @HiveField(3)
   DateTime get createdAt;
   @override
-  @HiveField(4)
+  @HiveField(3)
   List<int> get imageBytes;
   @override
   @JsonKey(ignore: true)

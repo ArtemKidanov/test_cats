@@ -7,6 +7,7 @@ import 'package:test_cats/src/presentation/features/base/cubit_helper.dart';
 import 'package:test_cats/src/presentation/features/cat_fact_screen/cat_fact_cubit.dart';
 import 'package:test_cats/src/presentation/features/cat_facts_list_screen/cat_facts_list_screen.dart';
 import 'package:test_cats/src/presentation/widgets/error_message_widget.dart';
+import 'package:test_cats/src/presentation/widgets/image_from_bytes_widget.dart';
 import 'package:test_cats/src/presentation/widgets/loading_widget.dart';
 import 'package:test_cats/src/presentation/widgets/text_button_widget.dart';
 
@@ -33,28 +34,11 @@ class CatFactScreen extends StatelessWidget
           }
 
           return Padding(
-            padding: const EdgeInsets.only(
-              top: 8,
-              left: 8,
-              right: 8,
-              bottom: 48,
-            ),
+            padding:
+                const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 48),
             child: ListView(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    _buildCatImage(state),
-                    const SizedBox(height: 16),
-                    Text(state.catFact.text),
-                    const SizedBox(height: 8),
-                    Text(
-                      DateFormat.yMMMMd(
-                        Platform.localeName,
-                      ).format(state.catFact.createdAt),
-                    ),
-                  ],
-                ),
+                _buildCatFact(state),
               ],
             ),
           );
@@ -69,6 +53,25 @@ class CatFactScreen extends StatelessWidget
           return _buildButtons(context);
         },
       ),
+    );
+  }
+
+  Widget _buildCatFact(CatFactState state) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ImageFromBytesWidget(
+          imageBytes: Uint8List.fromList(state.catFact.imageBytes),
+        ),
+        const SizedBox(height: 16),
+        Text(state.catFact.text),
+        const SizedBox(height: 8),
+        Text(
+          DateFormat.yMMMMd(
+            Platform.localeName,
+          ).format(state.catFact.createdAt),
+        ),
+      ],
     );
   }
 
@@ -88,19 +91,6 @@ class CatFactScreen extends StatelessWidget
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildCatImage(CatFactState state) {
-    return Center(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.memory(
-          Uint8List.fromList(
-            state.catFact.imageBytes ?? [],
-          ),
-        ),
-      ),
     );
   }
 }

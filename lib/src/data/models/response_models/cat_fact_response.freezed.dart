@@ -29,6 +29,9 @@ mixin _$CatFactResponse {
   bool get isDeleted => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status')
+  CatFactStatusResponse get statusResponse =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +52,10 @@ abstract class $CatFactResponseCopyWith<$Res> {
       String type,
       @JsonKey(name: 'deleted') bool isDeleted,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      @JsonKey(name: 'status') CatFactStatusResponse statusResponse});
+
+  $CatFactStatusResponseCopyWith<$Res> get statusResponse;
 }
 
 /// @nodoc
@@ -72,6 +78,7 @@ class _$CatFactResponseCopyWithImpl<$Res, $Val extends CatFactResponse>
     Object? isDeleted = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? statusResponse = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -102,7 +109,19 @@ class _$CatFactResponseCopyWithImpl<$Res, $Val extends CatFactResponse>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      statusResponse: null == statusResponse
+          ? _value.statusResponse
+          : statusResponse // ignore: cast_nullable_to_non_nullable
+              as CatFactStatusResponse,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CatFactStatusResponseCopyWith<$Res> get statusResponse {
+    return $CatFactStatusResponseCopyWith<$Res>(_value.statusResponse, (value) {
+      return _then(_value.copyWith(statusResponse: value) as $Val);
+    });
   }
 }
 
@@ -121,7 +140,11 @@ abstract class _$$_CatFactResponseCopyWith<$Res>
       String type,
       @JsonKey(name: 'deleted') bool isDeleted,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      @JsonKey(name: 'status') CatFactStatusResponse statusResponse});
+
+  @override
+  $CatFactStatusResponseCopyWith<$Res> get statusResponse;
 }
 
 /// @nodoc
@@ -142,6 +165,7 @@ class __$$_CatFactResponseCopyWithImpl<$Res>
     Object? isDeleted = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? statusResponse = null,
   }) {
     return _then(_$_CatFactResponse(
       id: null == id
@@ -172,6 +196,10 @@ class __$$_CatFactResponseCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      statusResponse: null == statusResponse
+          ? _value.statusResponse
+          : statusResponse // ignore: cast_nullable_to_non_nullable
+              as CatFactStatusResponse,
     ));
   }
 }
@@ -186,7 +214,8 @@ class _$_CatFactResponse implements _CatFactResponse {
       required this.type,
       @JsonKey(name: 'deleted') required this.isDeleted,
       required this.createdAt,
-      required this.updatedAt});
+      required this.updatedAt,
+      @JsonKey(name: 'status') required this.statusResponse});
 
   factory _$_CatFactResponse.fromJson(Map<String, dynamic> json) =>
       _$$_CatFactResponseFromJson(json);
@@ -207,10 +236,13 @@ class _$_CatFactResponse implements _CatFactResponse {
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
+  @override
+  @JsonKey(name: 'status')
+  final CatFactStatusResponse statusResponse;
 
   @override
   String toString() {
-    return 'CatFactResponse(id: $id, user: $user, text: $text, type: $type, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'CatFactResponse(id: $id, user: $user, text: $text, type: $type, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, statusResponse: $statusResponse)';
   }
 
   @override
@@ -227,13 +259,15 @@ class _$_CatFactResponse implements _CatFactResponse {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.statusResponse, statusResponse) ||
+                other.statusResponse == statusResponse));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, user, text, type, isDeleted, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, user, text, type, isDeleted,
+      createdAt, updatedAt, statusResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -251,13 +285,16 @@ class _$_CatFactResponse implements _CatFactResponse {
 
 abstract class _CatFactResponse implements CatFactResponse {
   const factory _CatFactResponse(
-      {@JsonKey(name: '_id') required final String id,
-      required final String user,
-      required final String text,
-      required final String type,
-      @JsonKey(name: 'deleted') required final bool isDeleted,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_CatFactResponse;
+          {@JsonKey(name: '_id') required final String id,
+          required final String user,
+          required final String text,
+          required final String type,
+          @JsonKey(name: 'deleted') required final bool isDeleted,
+          required final DateTime createdAt,
+          required final DateTime updatedAt,
+          @JsonKey(name: 'status')
+          required final CatFactStatusResponse statusResponse}) =
+      _$_CatFactResponse;
 
   factory _CatFactResponse.fromJson(Map<String, dynamic> json) =
       _$_CatFactResponse.fromJson;
@@ -278,6 +315,9 @@ abstract class _CatFactResponse implements CatFactResponse {
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
+  @override
+  @JsonKey(name: 'status')
+  CatFactStatusResponse get statusResponse;
   @override
   @JsonKey(ignore: true)
   _$$_CatFactResponseCopyWith<_$_CatFactResponse> get copyWith =>

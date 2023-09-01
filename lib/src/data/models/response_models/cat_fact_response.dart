@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:test_cats/src/data/models/response_models/cat_fact_status_response.dart';
 
 part 'cat_fact_response.freezed.dart';
 part 'cat_fact_response.g.dart';
@@ -13,6 +14,7 @@ class CatFactResponse with _$CatFactResponse {
     @JsonKey(name: 'deleted') required bool isDeleted,
     required DateTime createdAt,
     required DateTime updatedAt,
+    @JsonKey(name: 'status') required CatFactStatusResponse statusResponse,
   }) = _CatFactResponse;
 
   factory CatFactResponse.fromJson(Map<String, Object?> json) =>

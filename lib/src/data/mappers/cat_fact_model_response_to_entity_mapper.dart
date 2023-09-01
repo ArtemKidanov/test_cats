@@ -10,7 +10,6 @@ class CatFactModelResponseToEntityMapper {
     return CatFact(
       id: response.id,
       text: response.text,
-      isDeleted: response.isDeleted,
       createdAt: response.createdAt,
       imageBytes: imageBytes,
     );

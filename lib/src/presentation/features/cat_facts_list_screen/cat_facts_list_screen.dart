@@ -1,11 +1,11 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:test_cats/src/presentation/features/base/cubit_helper.dart';
 import 'package:test_cats/src/presentation/features/cat_facts_list_screen/cat_facts_list_cubit.dart';
+import 'package:test_cats/src/presentation/widgets/date_formatted_text_widget.dart';
 import 'package:test_cats/src/presentation/widgets/error_message_widget.dart';
+import 'package:test_cats/src/presentation/widgets/image_from_bytes_widget.dart';
 import 'package:test_cats/src/presentation/widgets/loading_widget.dart';
 
 class CatFactsListScreen extends StatelessWidget
@@ -42,26 +42,19 @@ class CatFactsListScreen extends StatelessWidget
           return ListView.builder(
             itemCount: state.catFactsList.length,
             itemBuilder: (context, index) => ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.memory(
-                  Uint8List.fromList(
-                    state.catFactsList[index].imageBytes ?? [],
-                  ),
-                  width: 50,
+              leading: ImageFromBytesWidget(
+                imageBytes: Uint8List.fromList(
+                  state.catFactsList[index].imageBytes,
                 ),
+                width: 50,
               ),
               contentPadding: const EdgeInsets.all(4),
               title: Text(
                 state.catFactsList[index].text,
                 overflow: TextOverflow.ellipsis,
               ),
-              subtitle: Text(
-                DateFormat.yMMMMd(
-                  Platform.localeName,
-                ).format(
-                  state.catFactsList[index].createdAt,
-                ),
+              subtitle: DateFormattedTextWidget(
+                dateTime: state.catFactsList[index].createdAt,
               ),
               isThreeLine: true,
             ),

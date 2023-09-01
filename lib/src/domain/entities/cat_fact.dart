@@ -10,15 +10,13 @@ class CatFact with _$CatFact {
   const factory CatFact({
     @HiveField(0) required String id,
     @HiveField(1) required String text,
-    @HiveField(2) required bool isDeleted,
-    @HiveField(3) required DateTime createdAt,
-    @HiveField(4) required List<int> imageBytes,
+    @HiveField(2) required DateTime createdAt,
+    @HiveField(3) required List<int> imageBytes,
   }) = _CatFact;
 
   factory CatFact.initial() => CatFact(
         id: '',
         text: '',
-        isDeleted: false,
         createdAt: DateTime.now(),
         imageBytes: <int>[],
       );

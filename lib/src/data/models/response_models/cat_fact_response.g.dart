@@ -15,6 +15,8 @@ _$_CatFactResponse _$$_CatFactResponseFromJson(Map<String, dynamic> json) =>
       isDeleted: json['deleted'] as bool,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
+      statusResponse: CatFactStatusResponse.fromJson(
+          json['status'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CatFactResponseToJson(_$_CatFactResponse instance) =>
@@ -26,4 +28,5 @@ Map<String, dynamic> _$$_CatFactResponseToJson(_$_CatFactResponse instance) =>
       'deleted': instance.isDeleted,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
+      'status': instance.statusResponse,
     };
