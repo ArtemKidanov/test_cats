@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:test_cats/src/presentation/features/base/cubit_helper.dart';
-import 'package:test_cats/src/presentation/features/cat_facts_list_screen/cat_facts_list_cubit.dart';
+import 'package:test_cats/src/presentation/screens/base/cubit_helper.dart';
+import 'package:test_cats/src/presentation/screens/cat_facts_list_screen/cat_facts_list_cubit.dart';
 import 'package:test_cats/src/presentation/widgets/date_formatted_text_widget.dart';
 import 'package:test_cats/src/presentation/widgets/error_message_widget.dart';
 import 'package:test_cats/src/presentation/widgets/image_from_bytes_widget.dart';
